@@ -1,7 +1,9 @@
 import React from "react";
 
-const Result = () => {
+const ResultTable = () => {
   return <div>Result</div>;
 };
+ResultTable;
 
 export default Result;
+ResultTable;
