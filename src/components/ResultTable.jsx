@@ -17,8 +17,8 @@ const ResultTable = ({ userInput }) => {
         </tr>
       </thead>
       <tbody>
-        {investmentResults.map((result, index) => (
-          <ResultRow key={index} result={result} />
+        {investmentResults.map((result) => (
+          <ResultRow key={result.year} result={result} />
         ))}
       </tbody>
     </table>
