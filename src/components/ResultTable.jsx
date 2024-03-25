@@ -1,6 +1,10 @@
 import React from "react";
+import ResultRow from "./ResultRow";
+import { calculateInvestmentResults } from "../util/investment";
 
-const ResultTable = () => {
+const ResultTable = ({ userInput }) => {
+  const investmentResults = calculateInvestmentResults(userInput);
+
   return (
     <table id="result">
       <thead>
@@ -12,6 +16,11 @@ const ResultTable = () => {
           <th>Invested Capital</th>
         </tr>
       </thead>
+      <tbody>
+        {investmentResults.map((result, index) => (
+          <ResultRow key={index} result={result} />
+        ))}
+      </tbody>
     </table>
   );
 };
