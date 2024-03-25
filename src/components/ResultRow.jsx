@@ -7,6 +7,7 @@ const ResultRow = ({ result }) => {
       <td>{result.valueEndOfYear}</td>
       <td>{result.interest}</td>
       <td>{result.annualInvestment}</td>
+      <td>{result.valueEndOfYear - result.interest}</td>
     </tr>
   );
 };
