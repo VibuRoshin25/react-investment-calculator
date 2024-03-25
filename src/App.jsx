@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Header from "./components/Header";
 import UserInput from "./components/UserInput";
 import ResultTable from "./components/ResultTable";
@@ -12,14 +13,20 @@ function App() {
   const handleChange = (inputIdentifier, newValue) => {
     setUserInput((prevUserInput) => ({
       ...prevUserInput,
-      [inputIdentifier]: newValue,
+      [inputIdentifier]: +newValue,
     }));
   };
+
+  const inputIsValid = userInput.duration > 0;
   return (
     <>
       <Header />
-      <UserInput handleChange={handleChange} />
-      <ResultTable userInput={userInput} />
+      <UserInput handleChange={handleChange} userInput={userInput} />
+      {inputIsValid ? (
+        <ResultTable userInput={userInput} />
+      ) : (
+        <p className="center">Please Enter a valid Duration!</p>
+      )}
     </>
   );
 }
