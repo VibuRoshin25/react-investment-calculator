@@ -1,11 +1,22 @@
 import React from "react";
 
-const Input = ({ className, label }) => {
+const Input = ({ handleChange, label, name, value }) => {
+  const handleInputChange = (event) => {
+    handleChange(name, event.target.value);
+  };
+
   return (
-    <>
-      <label htmlFor={label}>{label}</label>
-      <input type="number" name={label} id={label} />
-    </>
+    <p>
+      <label htmlFor={name}>{label}</label>
+      <input
+        onChange={handleInputChange}
+        type="number"
+        value={value}
+        name={name}
+        id={name}
+        required
+      />
+    </p>
   );
 };
 
